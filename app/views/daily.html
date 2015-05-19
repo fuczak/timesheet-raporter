@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+      <h2>Dodaj raport dzienny</h2>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel">
+      <div class="panel-heading">
+        <h4>Dzień i godziny pracy</h4>
+      </div>
+      <div class="panel-body" class="text-center">
+        <form name="datepickerForm" class="form-inline" role="form">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+                <label class="control-label"><i class="glyphicon glyphicon-calendar"></i> Data
+                </label>
+                <input type="text" class="form-control" ng-model="date.selected" name="date" bs-datepicker>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+                <label class="control-label"><i class="glyphicon glyphicon-time"></i> Od godziny:</label>
+                <input type="text" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+                <label class="control-label"><i class="glyphicon glyphicon-time"></i> Do godziny:</label>
+                <input type="text" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row panel-heading">
+            <h4>Lista prac</h4>
+          </div>
+          <div class="col-md-12">
+            <ul>
+              <li ng-repeat="job joblist"></li>
+              <li><a href="">+ click here to add more</a></li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
