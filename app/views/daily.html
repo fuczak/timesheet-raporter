@@ -15,23 +15,24 @@
       <div class="panel-body" class="text-center">
         <form name="datepickerForm" class="form-inline" role="form">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
                 <label class="control-label"><i class="glyphicon glyphicon-calendar"></i> Data
                 </label>
+                <br>
                 <input type="text" class="form-control" ng-model="date.selected" name="date" bs-datepicker>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
                 <label class="control-label"><i class="glyphicon glyphicon-time"></i> Od godziny:</label>
-                <input type="text" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
+                <input type="text" size="5" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
                 <label class="control-label"><i class="glyphicon glyphicon-time"></i> Do godziny:</label>
-                <input type="text" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
+                <input type="text" size="5" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
               </div>
             </div>
           </div>
@@ -40,10 +41,9 @@
             <h4>Lista prac</h4>
           </div>
           <div class="col-md-12">
-            <ul>
-              <li ng-repeat="job joblist"></li>
-              <li><a href="">+ click here to add more</a></li>
-            </ul>
+            <div class="panel" ng-repeat="job in joblist">
+              {{job}}
+            </div>
           </div>
         </form>
       </div>

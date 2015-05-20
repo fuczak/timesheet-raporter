@@ -19,4 +19,6 @@ angular.module('reportEmailSenderApp')
       from: 25200000,
       to: 54000000
     };
+    //Joblist
+    $scope.joblist = ['Lorem ipsum dolor sit amet bla bla bla.', 'The other one.'];
   });
