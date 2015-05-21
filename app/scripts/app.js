@@ -20,7 +20,8 @@ angular.module('reportEmailSenderApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth',
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    'monospaced.elastic'
   ])
 
   .config(function($datepickerProvider, $timepickerProvider) {

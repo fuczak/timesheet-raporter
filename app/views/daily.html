@@ -33,11 +33,21 @@
           <br>
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="job in joblist">
-              {{job}}
-              <span class="badge button-danger" ng-click="removeJob($index)"><i class="glyphicon glyphicon-remove"></i></span></li>
+              <div class="row">
+                <div class="col-md-10">{{job}}</div>
+                <div class="col-md-2">
+                  <span class="badge button-danger pull-right" ng-click="removeJob($index)">
+                    <i class="glyphicon glyphicon-remove"></i> Edytuj
+                  </span>
+                  <span class="badge button-success pull-right" ng-click="removeJob($index)">
+                    <i class="glyphicon glyphicon-edit"></i> Usuń
+                  </span>
+                </div>
+              </div>
+            </li>
             <div class="input-group" style="width: 100%">
-              <span class="btn input-group-addon input-group-addon-small" ng-disabled="!job.new" ng-class="{'button-success': !!job.new}" ng-click="addJob(job.new)"><i class="glyphicon glyphicon-plus"></i></span>
-              <textarea class="form-control" placeholder="Dodaj nową czynność" ng-model="job.new" style="resize: vertical"/>
+              <span style="width: 5%" class="btn input-group-addon" ng-disabled="!job.new" ng-class="{'button-success': !!job.new}" ng-click="addJob(job.new)"><i class="glyphicon glyphicon-plus"></i> Dodaj</span>
+              <textarea msd-elastic="\n" class="form-control animated-textarea" placeholder="Dodaj nową czynność" ng-model="job.new" style="resize: vertical"/>
             </div>
           </ul>
         </form>

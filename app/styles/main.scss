@@ -1,14 +1,12 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 //Custom variables
-$navbar-margin-bottom: 0px;
-$box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
-
-@import "bootswatch-scss/cosmo/_variables.scss";
+$navbar-margin-bottom: 0;
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
+@import "bootswatch-scss/flatly/_variables.scss";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
-@import "bootswatch-scss/cosmo/_bootswatch.scss";
-
+@import "bootswatch-scss/flatly/_bootswatch.scss";
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -74,6 +72,7 @@ body {
 }
 .input-group-addon {
   background-color: $gray-lighter;
+  outline: none !important;
 }
 .button-success {
   background-color: $brand-success;
@@ -86,7 +85,7 @@ body {
   color: #fff;
   transition: 300ms all;
   cursor: pointer;
-  border-radius: 0px;
+  border-radius: 0;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -112,13 +111,14 @@ body {
 }
 //ngStrap Timepicker styling
 .timepicker.dropdown-menu {
-  background-color: $brand-primary;
+  background-color: #fff;
   color: #fff;
   padding: 6px;
   & button {
     outline: none;
-    border: 0px;
+    border: 1px solid $gray-lighter;
     width: 100%;
+    //background-color: $brand-primary;
   }
   & tbody button {
     padding: 6px;
@@ -126,24 +126,40 @@ body {
 }
 //ngStrap Datepicker styling
 .datepicker.dropdown-menu {
-  background-color: $brand-primary;
+  background-color: #fff;
   padding: 6px;
   width: 100%;
-  height: 275px;
-  color: #fff;
+  height: 100px;
   & button {
+    border: 1px solid $gray-lighter;
     outline: none;
-    border: 0px;
+    //background-color: $brand-primary;
   }
   & tbody {
-    height: 180px;
+    height: 100%;
   }
   & tbody button {
     padding: 6px;
   }
-  &.datepicker-mode-1, &.datepicker-mode-2 {
+  &.datepicker-mode-1,
+  &.datepicker-mode-2 {
     tbody button {
       height: 65px;
     }
   }
+}
+//Textarea animation
+.animated-textarea {
+  transition: height 300ms ease-in-out;
+}
+li {
+  transition: 400ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
+}
+li.ng-enter {
+  animation-name: 'bounce';
+  opacity: 0;
+}
+li.ng-enter-active {
+  animation-name: 'fadeInDown'
+  opacity: 1;
 }
