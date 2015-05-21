@@ -10,41 +10,37 @@
   <div class="col-md-12">
     <div class="panel">
       <div class="panel-heading">
-        <h4>Dzień i godziny pracy</h4>
+        <h4>Wprowadź dane</h4>
       </div>
-      <div class="panel-body" class="text-center">
+      <div class="panel-body">
         <form name="datepickerForm" class="form-inline" role="form">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
-                <label class="control-label"><i class="glyphicon glyphicon-calendar"></i> Data
-                </label>
-                <br>
-                <input type="text" class="form-control" ng-model="date.selected" name="date" bs-datepicker>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
-                <label class="control-label"><i class="glyphicon glyphicon-time"></i> Od godziny:</label>
-                <input type="text" size="5" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
-                <label class="control-label"><i class="glyphicon glyphicon-time"></i> Do godziny:</label>
-                <input type="text" size="5" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
-              </div>
-            </div>
+          <h3>Data i przepracowane godziny</h3>
+          <br>
+          <div class="input-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> Data</span>
+            <input type="text" size="20" class="form-control" ng-model="date.selected" name="date" bs-datepicker>
+          </div>
+          <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Od</span>
+            <input type="text" size="3" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
+          </div>
+          <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Do</span>
+            <input type="text" size="3" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
           </div>
           <hr>
-          <div class="row panel-heading">
-            <h4>Lista prac</h4>
-          </div>
-          <div class="col-md-12">
-            <div class="panel" ng-repeat="job in joblist">
-              {{job}}
+          <h3>Lista wykonanych czynności</h3>
+          <br>
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <div class="input-group" style="width: 100%">
+              <span class="bg-warning input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
+              <input type="text" class="form-control" placeholder="Dodaj nową czynność">
             </div>
-          </div>
+          </ul>
         </form>
       </div>
     </div>

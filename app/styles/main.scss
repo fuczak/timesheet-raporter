@@ -1,5 +1,6 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 //Custom variables
+$navbar-margin-bottom: 0px;
 $box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
 
 @import "bootswatch-scss/cosmo/_variables.scss";
@@ -70,6 +71,9 @@ body {
 .panel-heading {
   background-color: $brand-primary;
   color: #fff;
+}
+.input-group-addon {
+  background-color: $gray-lighter;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
