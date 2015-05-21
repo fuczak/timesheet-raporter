@@ -35,6 +35,8 @@ angular.module('reportEmailSenderApp', [
       timeType: 'number',
       length: 3,
       arrowBehavior: 'picker',
-      timeFormat: 'HH:mm'
+      timeFormat: 'HH:mm',
+      placement: 'auto',
+      template: 'views/partials/timepicker.html'
     });
   });
