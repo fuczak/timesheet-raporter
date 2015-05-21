@@ -21,4 +21,13 @@ angular.module('reportEmailSenderApp')
     };
     //Joblist
     $scope.joblist = ['Lorem ipsum dolor sit amet bla bla bla.', 'The other one.'];
+
+    $scope.addJob = function (job) {
+      $scope.joblist.push(job);
+      $scope.job.new = '';
+    };
+
+    $scope.removeJob = function (index) {
+      $scope.joblist.splice(index, 1);
+    }
   });

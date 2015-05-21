@@ -75,6 +75,19 @@ body {
 .input-group-addon {
   background-color: $gray-lighter;
 }
+.button-success {
+  background-color: $brand-success;
+  color: #fff;
+  transition: 300ms all;
+  cursor: pointer;
+}
+.button-danger {
+  background-color: $brand-danger;
+  color: #fff;
+  transition: 300ms all;
+  cursor: pointer;
+  border-radius: 0px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -98,7 +111,7 @@ body {
   }
 }
 //ngStrap Timepicker styling
-.timepicker.dropdown-menu {  
+.timepicker.dropdown-menu {
   background-color: $brand-primary;
   color: #fff;
   padding: 6px;

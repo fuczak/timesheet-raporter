@@ -22,23 +22,22 @@
           </div>
           <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Od</span>
-            <input type="text" size="3" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
+            <input type="text" size="5" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
           </div>
           <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Do</span>
-            <input type="text" size="3" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
+            <input type="text" size="5" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
           </div>
           <hr>
           <h3>Lista wykonanych czynności</h3>
           <br>
           <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item" ng-repeat="job in joblist">
+              {{job}}
+              <span class="badge button-danger" ng-click="removeJob($index)"><i class="glyphicon glyphicon-remove"></i></span></li>
             <div class="input-group" style="width: 100%">
-              <span class="bg-warning input-group-addon"><i class="glyphicon glyphicon-plus"></i></span>
-              <input type="text" class="form-control" placeholder="Dodaj nową czynność">
+              <span class="btn input-group-addon input-group-addon-small" ng-disabled="!job.new" ng-class="{'button-success': !!job.new}" ng-click="addJob(job.new)"><i class="glyphicon glyphicon-plus"></i></span>
+              <textarea class="form-control" placeholder="Dodaj nową czynność" ng-model="job.new" style="resize: vertical"/>
             </div>
           </ul>
         </form>
