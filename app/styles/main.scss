@@ -2,9 +2,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 //Custom variables
 $navbar-margin-bottom: 0;
 $box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
+$use-fadeInUp: true;
+$use-slideOutDown: true;
+
 @import "bootswatch-scss/flatly/_variables.scss";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "animate-sass/_animate.scss";
 // endbower
 @import "bootswatch-scss/flatly/_bootswatch.scss";
 .browsehappy {
@@ -152,14 +156,12 @@ body {
 .animated-textarea {
   transition: height 300ms ease-in-out;
 }
-li {
-  transition: 400ms cubic-bezier(0.000, 0.000, 0.580, 1.000) all;
-}
 li.ng-enter {
-  animation-name: 'bounce';
+  animation-name: 'fadeInUp';
+  animation-duration: 1200ms;
   opacity: 0;
 }
-li.ng-enter-active {
-  animation-name: 'fadeInDown'
-  opacity: 1;
+li.ng-leave {
+  animation-name: 'slideOutDown';
+  animation-duration: 1200ms;
 }

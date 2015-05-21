@@ -29,5 +29,5 @@ angular.module('reportEmailSenderApp')
 
     $scope.removeJob = function (index) {
       $scope.joblist.splice(index, 1);
-    }
+    };
   });
