@@ -2,7 +2,10 @@
   <div class="col-md-12">
     <div class="jumbotron text-center">
       <h2>Dodaj raport dzienny</h2>
-    </div>
+      <p>dla klienta: </p>
+      <button type="button" class="btn btn-danger" ng-model="email.selected" bs-options="client.name for client in clients" bs-select>
+      <span class="caret"></span>
+      </button>
   </div>
 </div>
 <hr>
@@ -13,43 +16,41 @@
         <h4>Wprowadź dane</h4>
       </div>
       <div class="panel-body">
-        <form name="datepickerForm" class="form-inline" role="form">
+        <form name="raportForm" class="form-inline text-center" role="form">
           <h3>Data i przepracowane godziny</h3>
           <br>
-          <div class="input-group" ng-class="{'has-error': datepickerForm.date.$invalid}">
+          <div class="input-group" ng-class="{'has-error': raportForm.date.$invalid}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i> Data</span>
-            <input type="text" size="20" class="form-control" ng-model="date.selected" name="date" bs-datepicker>
+            <input type="text" size="20" class="form-control" ng-model="date.selected" name="date" bs-datepicker required>
           </div>
-          <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+          <div class="input-group" ng-class="{'has-error': raportForm.timeFrom.$invalid}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Od</span>
-            <input type="text" size="5" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker>
+            <input type="text" size="5" class="form-control" ng-model="time.from" name="timeFrom" bs-timepicker required>
           </div>
-          <div class="input-group" ng-class="{'has-error': datepickerForm.timeFrom.$invalid}">
+          <div class="input-group" ng-class="{'has-error': raportForm.timeTo.$invalid}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Do</span>
-            <input type="text" size="5" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker>
+            <input type="text" size="5" class="form-control" ng-model="time.to" name="timeTo" bs-timepicker required>
           </div>
           <hr>
           <h3>Lista wykonanych czynności</h3>
           <br>
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="job in joblist">
-              <div class="row">
-                <div class="col-md-10">{{job}}</div>
-                <div class="col-md-2">
-                  <span class="badge button-danger pull-right" ng-click="removeJob($index)">
-                    <i class="glyphicon glyphicon-remove"></i> Edytuj
-                  </span>
-                  <span class="badge button-success pull-right" ng-click="removeJob($index)">
-                    <i class="glyphicon glyphicon-edit"></i> Usuń
-                  </span>
-                </div>
+            <li class="list-group-item joblist-item" ng-repeat="job in joblist">
+              <div class="input-group" style="width: 100%">
+                <textarea msd-elastic="\n" class="form-control animated-textarea" placeholder="Dodaj nową czynność" ng-model="job" style="resize: vertical" required/>
+                <span style="width: 5%" class="btn btn-danger input-group-addon" ng-click="removeJob($index)"><i class="glyphicon glyphicon-remove"></i> Usuń</span>
               </div>
             </li>
-            <div class="input-group" style="width: 100%">
-              <span style="width: 5%" class="btn input-group-addon" ng-disabled="!job.new" ng-class="{'button-success': !!job.new}" ng-click="addJob(job.new)"><i class="glyphicon glyphicon-plus"></i> Dodaj</span>
-              <textarea msd-elastic="\n" class="form-control animated-textarea" placeholder="Dodaj nową czynność" ng-model="job.new" style="resize: vertical"/>
-            </div>
+            <li class="list-group-item joblist-item">
+              <div class="input-group" style="width: 100%">
+                <span style="width: 5%" class="btn btn-success input-group-addon" ng-disabled="!job.new" ng-click="addJob(job.new)"><i class="glyphicon glyphicon-plus"></i> Dodaj</span>
+                <textarea name="newJob" msd-elastic="\n" class="form-control animated-textarea" placeholder="Dodaj nową czynność (musisz dodać przynajmniej jedną)" ng-model="job.new" style="resize: vertical"/>
+              </div>
+            </li>
           </ul>
+          <hr>
+          <button class="btn btn-default" ng-click="saveReport()" ng-disabled="raportForm.$invalid || !joblist.length" ng-class="{'btn-info': raportForm.$valid && joblist.length}">Zapisz do późniejszego wysłania</button>
+          <button class="btn btn-default" ng-click="sendReport()" ng-disabled="raportForm.$invalid || !email.selected || !joblist.length" ng-class="{'btn-success': raportForm.$valid && joblist.length && email.selected}">Wyślij raport</button>         
         </form>
       </div>
     </div>

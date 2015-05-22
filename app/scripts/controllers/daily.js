@@ -19,8 +19,14 @@ angular.module('reportEmailSenderApp')
       from: 25200000,
       to: 54000000
     };
-    //Joblist
-    $scope.joblist = ['Lorem ipsum dolor sit amet bla bla bla.', 'The other one.'];
+    $scope.joblist = [];
+    $scope.clients = [{
+      name: 'Damian Prus',
+      email: 'prus.damian@gmail.com'
+    }, {
+      name: 'Kasia Dziadek',
+      email: 'kasiadzia@gmail.com'
+    }];
 
     $scope.addJob = function (job) {
       $scope.joblist.push(job);
@@ -29,5 +35,9 @@ angular.module('reportEmailSenderApp')
 
     $scope.removeJob = function (index) {
       $scope.joblist.splice(index, 1);
+    };
+
+    $scope.sendReport = function() {
+      console.log($scope);
     };
   });
